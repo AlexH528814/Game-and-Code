@@ -296,6 +296,16 @@ void pucciKill()
     }
 }
 
+void checkDeath()
+{
+    if (playerHP <= 0)
+    {
+        playerHP = 0;
+     
+
+    }
+}
+
 void chefKill()
 {
     if (playerHP <= 0)
@@ -818,6 +828,8 @@ if (enemy2Spawned == true)
                 chefDeath();
 
                 chefKill();
+
+
             }
         }
     }
