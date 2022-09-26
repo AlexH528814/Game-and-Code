@@ -1,0 +1,15 @@
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.exe
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.deps.json
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.runtimeconfig.json
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.dll
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.pdb
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.csproj.AssemblyReference.cache
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.GeneratedMSBuildEditorConfig.editorconfig
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.AssemblyInfoInputs.cache
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.AssemblyInfo.cs
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.csproj.CoreCompileInputs.cache
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.dll
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\refint\A Monarch's Flight 3.dll
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.pdb
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.genruntimeconfig.cache
+D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\ref\A Monarch's Flight 3.dll

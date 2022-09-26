@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git sourcetree test\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {}
+    "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {}
   },
   "projects": {
-    "D:\\git sourcetree test\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {
+    "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git sourcetree test\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
+        "projectUniqueName": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
         "projectName": "A Monarch's Flight 3",
-        "projectPath": "D:\\git sourcetree test\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
+        "projectPath": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
         "packagesPath": "C:\\Users\\528814\\.nuget\\packages\\",
-        "outputPath": "D:\\git sourcetree test\\A Monarch's Flight 3\\obj\\",
+        "outputPath": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

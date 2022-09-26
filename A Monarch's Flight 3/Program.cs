@@ -300,7 +300,7 @@ void chefKill()
 {
     if (playerHP <= 0)
     {
-        Console.WriteLine("The Palace chef has defeated you and allowed High Priest Pucci to steal your throne");
+        Console.WriteLine("The Palace Chef has defeated you and allowed High Priest Pucci to steal your throne");
     }
 }
 
@@ -639,6 +639,27 @@ if (enemy1Spawned == true)
 
                 pucciKill();
             }
+
+            else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
+            {
+                rndDam();
+                playerblockchance = 1;
+
+                blockedPucci();
+                blockedPucciFail();
+                pucciKill();
+                
+            }
+    
+            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+            {
+                rndDam();
+                playerHeal();
+
+                pucciDeath();
+                pucciKill();
+            }
+            
         }
     }
 }
@@ -735,6 +756,17 @@ if (enemy2Spawned == true)
 
                 blockedChef();
                 blockedChefFail();
+                chefKill();
+            }
+
+            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+            {
+                rndDam();
+
+                playerHeal();
+
+                chefDeath();
+
                 chefKill();
             }
         }
