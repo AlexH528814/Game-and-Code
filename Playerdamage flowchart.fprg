@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="528814"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-09-21 03:01:10 PM"/>
+        <attribute name="created" value="NTI4ODE0O0wtQ0IzNDYtMjEyNzQ7MjAyMi0wOS0yMDswNDowMToyOCBQTTsyMzA0"/>
+        <attribute name="edited" value="NTI4ODE0O0wtQ0IzNDYtMjEyNzQ7MjAyMi0wOS0yMTswMzowMToxMCBQTTs3OzI0MDk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="sword" type="Boolean" array="False" size=""/>
+            <declare name="missInt" type="Integer" array="False" size=""/>
+            <declare name="attackMiss" type="Boolean" array="False" size=""/>
+            <declare name="enemyhp" type="Integer" array="False" size=""/>
+            <declare name="playerDamage" type="Integer" array="False" size=""/>
+            <assign variable="enemyHP" expression="Random(26)"/>
+            <output expression="enemyHP" newline="True"/>
+            <assign variable="playerDamage" expression="Random(11)"/>
+            <assign variable="sword" expression="true"/>
+            <if expression="sword = true">
+                <then>
+                    <assign variable="playerDamage" expression="playerDamage + 5"/>
+                </then>
+                <else/>
+            </if>
+            <assign variable="missInt" expression="Random(11)"/>
+            <if expression="missint = 1">
+                <then>
+                    <assign variable="attackMiss" expression="true"/>
+                </then>
+                <else>
+                    <assign variable="attackMiss" expression="false"/>
+                </else>
+            </if>
+            <if expression="Attackmiss">
+                <then>
+                    <assign variable="playerDamage" expression="0"/>
+                </then>
+                <else>
+                    <assign variable="enemyHP" expression="enemyHP - playerDamage"/>
+                </else>
+            </if>
+            <output expression="playerDamage" newline="True"/>
+            <if expression="enemyHP &lt; 0">
+                <then>
+                    <assign variable="enemyHP" expression="0"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="enemyHP" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,15 @@
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\bin\Debug\net6.0\Attack block heal code for pucci game.exe
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\bin\Debug\net6.0\Attack block heal code for pucci game.deps.json
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\bin\Debug\net6.0\Attack block heal code for pucci game.runtimeconfig.json
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\bin\Debug\net6.0\Attack block heal code for pucci game.dll
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\bin\Debug\net6.0\Attack block heal code for pucci game.pdb
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.csproj.AssemblyReference.cache
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.AssemblyInfoInputs.cache
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.AssemblyInfo.cs
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.csproj.CoreCompileInputs.cache
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.dll
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\refint\Attack block heal code for pucci game.dll
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.pdb
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\Attack block heal code for pucci game.genruntimeconfig.cache
+C:\Users\alexh\OneDrive\Desktop\Repos\repo2 github desktop\repo2\Attack block heal code for pucci game\obj\Debug\net6.0\ref\Attack block heal code for pucci game.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "actual game code ca5/1.0.0": {
+        "runtime": {
+          "actual game code ca5.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "actual game code ca5/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
