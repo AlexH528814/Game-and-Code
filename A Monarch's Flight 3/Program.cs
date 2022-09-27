@@ -6,7 +6,7 @@ string deathMessage1;
 string deathMessage2;
 string deathMessage3;
 int enemyChance = 0;
-int enemyHP = 0;
+int enemyHP = 1;
 int playerHP = 100;
 int enemydamage;
 int playerblockchance;
@@ -18,8 +18,9 @@ int playerSlashDamage = 0;
 int playerThrustDamage = 0;
 int playerFryDamage = 0;
 int e = 0;
+int enemySpawned = 0;
 
-string room = "room";
+string room = "cell";
 string answer = "n";
 string movechoice = "";
 string fightflight = "";
@@ -33,9 +34,7 @@ deathMessage2 = "You deafeated the Palace Chef, no more food for a while";
 deathMessage3 = "You vanquished the enemy prisoner";
 
 bool blocking = false;
-bool enemy1Spawned = false;
-bool enemy2Spawned = false;
-bool enemy3Spawned = false;
+
 bool sword = true;
 bool fryingPan = false;
 bool knife = false;
@@ -300,9 +299,7 @@ void checkDeath()
 {
     if (playerHP <= 0)
     {
-        playerHP = 0;
-     
-
+        playerHP = 0;     
     }
 }
 
@@ -318,9 +315,9 @@ void pucciDeath()
 {
     if (enemyHP <= 0)
     {
-        enemy1Spawned = false;
-        Console.WriteLine(deathMessage1);
+        enemySpawned = 0;
         pucciKilled = true;
+        Console.WriteLine(deathMessage1);
     }
 }
 
@@ -328,8 +325,9 @@ void chefDeath()
 {
     if (enemyHP <= 0)
     {
-        enemy2Spawned = false;
-        Console.WriteLine(deathMessage2);
+        enemySpawned = 0;
+        chefKilled = true;
+        Console.WriteLine(deathMessage2);       
     }
 }
 
@@ -339,72 +337,67 @@ void rndDam()
     enemyCritchance = rnd.Next(0, 10);
 
     playerblockchance = rnd.Next(0, 6);
-    playerSlashDamage = rnd.Next(12, 50);
+    playerSlashDamage = rnd.Next(10000, 150000);
     playerThrustDamage = rnd.Next(2, 75);
     playerFryDamage = rnd.Next(0, 50);
     enemydamage = rnd.Next(9, 50);
 }
 
-
-Console.WriteLine("You woke up in a dark room with a light to both sides. Which way would you like to go? [Left] [Right]");
-movechoice = Console.ReadLine();
-
-
-
-if (movechoice == "Left")
+void roomSwitch()
 {
-    Console.WriteLine(@"     \                  ###########                  /
-      \                  #########                  /
-       \                                           /
-        \                                         /
-         \                                       /
-          \                                     /
-           \                                   /
-            \_________________________________/
-            |                                 |
-            |                                 |
-            |                                 |
-            |            _________            |
-            |           |         |           |
-            |           |   ___   |           |
-            |           I  |___|  |           |
-            |           |         |           |
-            |           |         |           |
-            |           |        _|           |
-            |           |       |#|           |  ;,
-    -- ___  |           |         |           |   ;'
-    H*/   ` |           |         |      _____|    .,`
-    */     )|           I         |     \_____\     ;'
-    /___.,';|           |         |     \\     \     .""`
-    |     ; |___________|_________|______\\     \      ;:
-    | ._,'  /                             \\     \      .
-    |,'    /                               \\     \
-    ||    /                                 \\_____\
-    ||   /                                   \_____|
-    ||  /              ___________                \
-    || /              / =====o    |                \
-    ||/              /  |   /-\   |                 \
-    //              /   |         |                  \
-   //              /    |   ____  |______             \
-  //              /    (O) |    | |      \             \
- //              /         |____| |  0    \             \
-//              /          o----  |________\             \
-/              /                  |     |  |              \
-              /                   |        |               \
-             /                    |        |             leb
-            /                     |        |
+    switch (room)
+    {
+        case "cell":
+            Console.WriteLine("You woke up in your palace dungeon in a small cell with a light in it.");
+            Console.WriteLine(@"     \                  ###########                  /
+                              \                  #########                  /
+                               \                                           /
+                                \                                         /
+                                 \                                       /
+                                  \                                     /
+                                   \                                   /
+                                    \_________________________________/
+                                    |                                 |
+                                    |                                 |
+                                    |                                 |
+                                    |            _________            |
+                                    |           |         |           |
+                                    |           |   ___   |           |
+                                    |           I  |___|  |           |
+                                    |           |         |           |
+                                    |           |         |           |
+                                    |           |        _|           |
+                                    |           |       |#|           |  ;,
+                            -- ___  |           |         |           |   ;'
+                            H*/   ` |           |         |      _____|    .,`
+                            */     )|           I         |     \_____\     ;'
+                            /___.,';|           |         |     \\     \     .""`
+                                    |     ; |___________|_________|______\\     \      ;:
+                                    | ._,'  /                             \\     \      .
+                                    |,'    /                               \\     \
+                                    ||    /                                 \\_____\
+                                    ||   /                                   \_____|
+                                    ||  /              ___________                \
+                                    || /              / =====o    |                \
+                                    ||/              /  |   /-\   |                 \
+                                    //              /   |         |                  \
+                                   //              /    |   ____  |______             \
+                                  //              /    (O) |    | |      \             \
+                                 //              /         |____| |  0    \             \
+                                //              /          o----  |________\             \
+                                /              /                  |     |  |              \
+                                              /                   |        |               \
+                                             /                    |        |             leb
+                                            /                     |        |
 
 ");
-    e = 1;
-    Console.WriteLine("A prisoner appears in your cell before you, what would you like to do? [Fight] [Flee]");
-    fightflight = Console.ReadLine();
-    room = "cell";
+            e = 1;
+            Console.WriteLine("A prisoner appears in your cell before you, what would you like to do? [Fight] [Flee]");
+            fightflight = Console.ReadLine();
+            break;
 
-}
-
-else if (movechoice == "Right")
-{
-    Console.WriteLine(@"   ____________________________________________________________________    
+        case "Kitchen":
+            Console.WriteLine(@"   ____________________________________________________________________    
  /|    |__I__I__I__I__I__I__I__I__I_|       _-       %       %         |\
   | _- |_I__I__I__I__I__I__I__I__I__|-_              %       %     _-  | 
   |    |__I__I__I__I__I__I__I__I__I_|                %       %         |
@@ -429,50 +422,61 @@ else if (movechoice == "Right")
   |    |  | //!\  @@)@@)@@@( /!\\ |  | ||   _--      \   /   ||  /|\   |
   |__lc|__|/_____________________\|__|_||____________/###\___||_|||||__|
  / -_  _ -      _ -   _-_    -  _ - _ -|| -_    _  - \___/_- || |||||-_ \ ");
-    Console.WriteLine("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
-    e = 2;
-    room = "Kitchen";
-    fightflight = Console.ReadLine();
-
+            Console.WriteLine("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
+            e = 2;
+            fightflight = Console.ReadLine();
+            break;
+    }
 }
 
-switch (fightflight)
+void fightFlight()
 {
-    case "Fight":
-        Console.WriteLine("You decided to fight the prisoner");
-        enemyChance = 1;
-        break;
+    switch (fightflight)
+    {
+         case "Fight":
+                 Console.WriteLine("You decided to fight the enemy in front of you");
+                 enemyChance = 1;
+            break;
 
-    case "Flee":
-        enemyChance = 0;
-        Console.WriteLine("You chose to flee from the prisoner");
-        break;
-
+          case "Flee":
+                 enemyChance = 0;
+              Console.WriteLine("You decided to flee from the enemy in front of you");
+             break;
+    
+    }
 }
 
-switch (e)
+void eswitch()
 {
-    case 1:
-        enemy1Spawned = true;
-        enemyHP = rnd.Next(150, 300);
-        break;
-    case 2:
-        enemy2Spawned = true;
-        enemyHP = rnd.Next(75, 125);
-        break;
-    case 3:
-        enemy3Spawned = true;
-        enemyHP = rnd.Next(50, 100);
-        break;
+    switch (e)
+    {
+        case 1:
+            enemySpawned = 1;
+            enemyHP = rnd.Next(150, 300);
+            break;
+        case 2:
+            enemySpawned = 2;
+            enemyHP = rnd.Next(75, 125);
+            break;
+        case 3:
+            enemySpawned = 3;
+            enemyHP = rnd.Next(50, 100);
+            break;
 
+    }
 }
-Console.WriteLine(e);
-if (enemyChance == 1 && e == 1)
+
+roomSwitch();
+fightFlight();
+eswitch();
+
+if (enemyChance == 1)
 {
-    enemy1Spawned = true;
-    Console.WriteLine(spawnMessage1);
-    Thread.Sleep(1000);
-    Console.WriteLine(@"                                                                                                                                                                                  
+    if (enemySpawned == 1)
+    {
+        Console.WriteLine(spawnMessage1);
+        Thread.Sleep(1000);
+        Console.WriteLine(@"                                                                                                                                                                                  
                                                 ▄█████▄                                   
                                              ▄█████████▓█                                 
                                              █▀███║▀███▒▀k                                
@@ -542,144 +546,157 @@ if (enemyChance == 1 && e == 1)
                                          ╓@▒▒▒░░░░░░░╢╜░░)                                
                                     ╓Ñ╜╙╜░░░░░░,░╛╢╢ß▒░░X                                 
                                    ╙┴═+~∞░░░░═`   ╙╜╜╙╜└                                  
-");
-}
+                                                                                ");
 
-else if (enemyChance != 1)
-{
-    enemy1Spawned = false;
-    enemy2Spawned = false;
-    enemy3Spawned = false;
-}
-
-if (enemy1Spawned == true)
-{
-    while (enemy1Spawned == true)
-    {
-        pucciMsg();
-        answer = Console.ReadLine();
-
-        if (fryingPan != true)
+        if (enemySpawned == 1)
         {
-            if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
+            while (enemySpawned == 1)
             {
-                rndDam();
+                pucciMsg();
+                answer = Console.ReadLine();
 
-                if (playerCritchance == 1)
+                if (fryingPan != true)
                 {
-                    playerSlashCrit();
+                    if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerSlashCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You slashed your weapon at High Priest Pucci for {playerSlashDamage} damage");
+                            enemyHP = enemyHP - playerSlashDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            pucciAttack();
+                        }
+
+                        pucciDeath();
+
+                        pucciKill();
+                    }
+
+                    if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerThrustCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerThrustDamage} damage");
+                            enemyHP = enemyHP - playerSlashDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            pucciAttack();
+                        }
+
+                        pucciDeath();
+
+                        pucciKill();
+                    }
+
+                    else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
+                    {
+
+                        rndDam();
+                        playerblockchance = 1;
+
+                        blockedPucci();
+                        blockedPucciFail();
+                        pucciKill();
+                    }
                 }
 
-                else if (playerCritchance != 1)
+                else if (fryingPan == true)
                 {
-                    Console.WriteLine($"You slashed your weapon at High Priest Pucci for {playerSlashDamage} damage");
-                    enemyHP = enemyHP - playerSlashDamage;
+                    if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerFryCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You smacked High Priest Pucci for {playerFryDamage} damage");
+                            enemyHP = enemyHP - playerFryDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            pucciAttack();
+                        }
+
+                        pucciDeath();
+
+                        pucciKill();
+                    }
+
+                    else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
+                    {
+                        rndDam();
+                        playerblockchance = 1;
+
+                        blockedPucci();
+                        blockedPucciFail();
+                        pucciKill();
+
+                    }
+
+                    else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+                    {
+                        rndDam();
+                        playerHeal();
+
+                        pucciDeath();
+                        pucciKill();
+                    }
+
                 }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    pucciAttack();
-                }
-
-                pucciDeath();
-
-                pucciKill();
             }
-
-            if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
+            if (pucciKilled == true)
             {
-                rndDam();
-
-                if (playerCritchance == 1)
+                Console.WriteLine("You have killed the prisoner and are now able to escape the prison cell, what would you like to do? [Leave] [Stay]");
+                answer = Console.ReadLine();
+                if (answer == "Leave")
                 {
-                    playerThrustCrit();
+                    room = "Kitchen";
                 }
 
-                else if (playerCritchance != 1)
+                else if (answer == "Stay")
                 {
-                    Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerThrustDamage} damage");
-                    enemyHP = enemyHP - playerSlashDamage;
+                    Console.WriteLine("You decided that it would be better for you to stay in the mangy palace dungeon cell for the rest of your days");
+                    Environment.Exit(0);
                 }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    pucciAttack();
-                }
-
-                pucciDeath();
-
-                pucciKill();
             }
-
-            else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
-            {
-
-                rndDam();
-                playerblockchance = 1;
-
-                blockedPucci();
-                blockedPucciFail();
-                pucciKill();
-            }
-        }
-
-        else if (fryingPan == true)
-        {
-            if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
-            {
-                rndDam();
-
-                if (playerCritchance == 1)
-                {
-                    playerFryCrit();
-                }
-
-                else if (playerCritchance != 1)
-                {
-                    Console.WriteLine($"You smacked High Priest Pucci for {playerFryDamage} damage");
-                    enemyHP = enemyHP - playerFryDamage;
-                }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    pucciAttack();
-                }
-
-                pucciDeath();
-
-                pucciKill();
-            }
-
-            else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
-            {
-                rndDam();
-                playerblockchance = 1;
-
-                blockedPucci();
-                blockedPucciFail();
-                pucciKill();
-                
-            }
-    
-            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
-            {
-                rndDam();
-                playerHeal();
-
-                pucciDeath();
-                pucciKill();
-            }
-            
+            roomSwitch();
+            eswitch();
         }
     }
-}
 
-else if (enemyChance == 1 && e == 2)
-{
-    enemy2Spawned = true;
-    Console.WriteLine(spawnMessage2);
-    Thread.Sleep(1000);
-    Console.WriteLine(@"       .--,--.
+    if (pucciKilled == true && e == 2)
+    {
+        roomSwitch();
+        fightFlight();
+        eswitch();
+
+        Console.WriteLine(spawnMessage2);
+        Thread.Sleep(1000);
+        Console.WriteLine(@"       .--,--.
                                `.  ,.'
                                 |___|
                                 :o o:   O    
@@ -690,153 +707,160 @@ else if (enemyChance == 1 && e == 2)
                                |     |
                                |_____|
                         ~~~~~~~ ===== ~~~~~~~~");
-}
 
-else if (enemyChance != 1)
-{
-    enemy1Spawned = false;
-    enemy2Spawned = false;
-    enemy3Spawned = false;
-}
-
-if (enemy2Spawned == true)
-{
-    while (enemy2Spawned == true)
-    {
-        chefMsg();
-        answer = Console.ReadLine();
-
-        if (fryingPan != true)
+        if (enemySpawned == 2)
         {
-            if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
+            while (enemySpawned == 2)
             {
-                rndDam();
+                chefMsg();
+                answer = Console.ReadLine();
 
-                if (playerCritchance == 1)
+                if (fryingPan != true)
                 {
-                    playerSlashCrit();
+                    if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerSlashCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You were able to slash the Palace Chef for {playerSlashDamage} damage");
+                            enemyHP = enemyHP - playerSlashDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            chefAttack();
+                        }
+
+                        chefDeath();
+
+                        chefKill();
+                    }
+
+                    if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerThrustCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerThrustDamage} damage");
+                            enemyHP = enemyHP - playerSlashDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            chefAttack();
+                        }
+
+                        chefDeath();
+
+                        chefKill();
+                    }
+
+                    else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
+                    {
+
+                        rndDam();
+                        playerblockchance = 1;
+
+                        blockedChef();
+                        blockedChefFail();
+                        chefKill();
+                    }
+
+                    else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+                    {
+                        rndDam();
+
+                        playerHeal();
+
+                        chefDeath();
+
+                        chefKill();
+                    }
                 }
 
-                else if (playerCritchance != 1)
+                else if (fryingPan == true)
                 {
-                    Console.WriteLine($"You were able to slash the Palace Chef for {playerSlashDamage} damage");
-                    enemyHP = enemyHP - playerSlashDamage;
+                    if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
+                    {
+                        rndDam();
+
+                        if (playerCritchance == 1)
+                        {
+                            playerFryCrit();
+                        }
+
+                        else if (playerCritchance != 1)
+                        {
+                            Console.WriteLine($"You were able to smack the Palace Chef for {playerFryDamage} damage");
+                            enemyHP = enemyHP - playerFryDamage;
+                        }
+
+                        if (enemyHP > 0 && playerHP > 0)
+                        {
+                            chefAttack();
+                        }
+
+                        chefDeath();
+
+                        chefKill();
+                    }
+
+                    else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
+                    {
+
+                        rndDam();
+                        playerblockchance = 1;
+
+                        blockedChef();
+                        blockedChefFail();
+                        chefKill();
+                    }
+
+                    else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+                    {
+                        rndDam();
+
+                        playerHeal();
+
+                        chefDeath();
+
+                        chefKill();
+
+
+                    }
                 }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    chefAttack();
-                }
-
-                chefDeath();
-
-                chefKill();
-            }
-
-            if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
-            {
-                rndDam();
-
-                if (playerCritchance == 1)
-                {
-                    playerThrustCrit();
-                }
-
-                else if (playerCritchance != 1)
-                {
-                    Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerThrustDamage} damage");
-                    enemyHP = enemyHP - playerSlashDamage;
-                }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    chefAttack();
-                }
-
-                chefDeath();
-
-                chefKill();
-            }
-
-            else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
-            {
-
-                rndDam();
-                playerblockchance = 1;
-
-                blockedChef();
-                blockedChefFail();
-                chefKill();
-            }
-
-            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
-            {
-                rndDam();
-
-                playerHeal();
-
-                chefDeath();
-
-                chefKill();
-            }
-        }
-
-        else if (fryingPan == true)
-        {
-            if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
-            {
-                rndDam();
-
-                if (playerCritchance == 1)
-                {
-                    playerFryCrit();
-                }
-
-                else if (playerCritchance != 1)
-                {
-                    Console.WriteLine($"You were able to smack the Palace Chef for {playerFryDamage} damage");
-                    enemyHP = enemyHP - playerFryDamage;
-                }
-
-                if (enemyHP > 0 && playerHP > 0)
-                {
-                    chefAttack();
-                }
-
-                chefDeath();
-
-                chefKill();
-            }
-
-            else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
-            {
-
-                rndDam();
-                playerblockchance = 1;
-
-                blockedChef();
-                blockedChefFail();
-                chefKill();
-            }
-
-            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
-            {
-                rndDam();
-                
-                playerHeal();
-
-                chefDeath();
-
-                chefKill();
-
-
             }
         }
     }
+
+
+            
+           
+
 }
 
 else if (enemyChance == 1 && e == 3)
 {
     Console.WriteLine("Unfinished");
 }
+
+else if (enemyChance != 1)
+{
+    enemySpawned = 0;
+}
+
+
+
 
