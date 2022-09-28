@@ -77,17 +77,17 @@ class Program
                 healthgain = rnd.Next(10, 20);
                 Console.ForegroundColor = ConsoleColor.Green;
                 sleep(1);
-                Console.WriteLine("You swiftly grab the red potion from you side and down it..");
+                type("You swiftly grab the red potion from you side and down it..");
                 Heals = Heals - 1;
                 sleep(1);
-                Console.WriteLine($"You have {Heals} Potions left!");
+                type($"You have {Heals} Potions left!");
                 sleep(1);
-                Console.WriteLine($"You Gain {healthgain} Health!");
+                type($"You Gain {healthgain} Health!");
                 sleep(1);
                 Console.ForegroundColor = ConsoleColor.White;
                 playerHP = playerHP + healthgain;
                 checkDeath();
-                Console.WriteLine($"You have {playerHP} Health");
+                type($"You have {playerHP} Health");
                 sleep(1); 
             }
             else if (Heals! > 0)
@@ -97,18 +97,18 @@ class Program
                     healthgain = rnd.Next(10, 20);
                     Console.ForegroundColor = ConsoleColor.Green;
 
-                    Console.WriteLine("You swiftly grab the red potion from you side and down it..");
+                    type("You swiftly grab the red potion from you side and down it..");
                     Heals = Heals - 1;
                     sleep(1);
-                    Console.WriteLine($"You have {Heals} Potions left!");
+                    type($"You have {Heals} Potions left!");
                     sleep(1);
-                    Console.WriteLine($"You Gain {healthgain} Health!");
+                    type($"You Gain {healthgain} Health!");
                     sleep(1);
                     Console.ForegroundColor = ConsoleColor.White;
 
                     playerHP = playerHP + healthgain;
                     checkDeath();
-                    Console.WriteLine($"You have {playerHP} Health");
+                    type($"You have {playerHP} Health");
                     sleep(2);
                 }
             }
@@ -116,51 +116,51 @@ class Program
         //Function for when Pucci spawns in
         void pucciMsg()
         {
-            Console.WriteLine($"High Priest Pucci has {enemyHP} Health");
+            type($"High Priest Pucci has {enemyHP} Health");
             sleep(1);
 
             if (fryingPan != true)
             {
-                Console.WriteLine("What would you like to do? [Slash] [Stab] [Block] [Heal]");
+                type("What would you like to do? [Slash] [Stab] [Block] [Heal]");
             }
 
             else
             {
-                Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
+                type("What would you like to do [Smack] [Block] [Heal]");
             }
         }
         //Function for when Prisoner spawns in
         void prisonerMsg()
         {
-            Console.WriteLine($"The enemy prisoner has {enemyHP} Health");
+            type($"The enemy prisoner has {enemyHP} Health");
             sleep(1);
 
             if (fryingPan != true)
             {
-                Console.WriteLine("What would you like to do? [Slash] [Stab] [Block] [Heal]");
+                type("What would you like to do? [Slash] [Stab] [Block] [Heal]");
 
             }
 
             else
             {
-                Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
+                type("What would you like to do [Smack] [Block] [Heal]");
             }
         }
         //Function for when Chef spawns in
         void chefMsg()
         {
-            Console.WriteLine($"The Palace Chef has {enemyHP} Health");
+            type($"The Palace Chef has {enemyHP} Health");
             sleep(1);
 
             if (fryingPan != true)
             {
-                Console.WriteLine("What would you like to do? [Slash] [Stab] [Block] [Heal]");
+                type("What would you like to do? [Slash] [Stab] [Block] [Heal]");
 
             }
 
             else
             {
-                Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
+                type("What would you like to do [Smack] [Block] [Heal]");
             }
         }
         //Function for when Pucci crits
@@ -168,12 +168,12 @@ class Program
         {
             if (enemyCritchance == 1)
             {
-                Console.WriteLine("High Priest Pucci has contolled his emotions and packed them into a single devastating punch!");
+                type("High Priest Pucci has contolled his emotions and packed them into a single devastating punch!");
                 sleep(1); 
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -182,12 +182,12 @@ class Program
         {
             if (enemyCritchance == 1)
             {
-                Console.WriteLine("The prisoner was able to land a dangerous punch on you!");
+                type("The prisoner was able to land a dangerous punch on you!");
                 sleep(1);
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -196,12 +196,12 @@ class Program
         {
             if (enemyCritchance == 1)
             {
-                Console.WriteLine("The Palace Chef has used his knowledge about food and cutlery to predict what your next move would be and strikes where it would hurt you most!");
+                type("The Palace Chef has used his knowledge about food and cutlery to predict what your next move would be and strikes where it would hurt you most!");
                 sleep(1);
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -210,10 +210,10 @@ class Program
         {
             if (enemyCritchance != 1)
             {
-                Console.WriteLine($"High Priest Pucci dealt you {enemydamage} damage ");
+                type($"High Priest Pucci dealt you {enemydamage} damage ");
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -222,11 +222,11 @@ class Program
         {
             if (enemyCritchance != 1)
             {
-                Console.WriteLine($"The prisoner dealt you {enemydamage} damage ");
+                type($"The prisoner dealt you {enemydamage} damage ");
                 playerHP = playerHP - enemydamage;
                 checkDeath();
                 sleep(1);
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -235,11 +235,11 @@ class Program
         {
             if (enemyCritchance != 1)
             {
-                Console.WriteLine($"The Palace Chef dealt you {enemydamage} damage ");
+                type($"The Palace Chef dealt you {enemydamage} damage ");
                 sleep(1); 
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -247,7 +247,7 @@ class Program
         void pucciAttack()
         {
 
-            Console.WriteLine($"High Priest Pucci has {enemyHP} Health");
+            type($"High Priest Pucci has {enemyHP} Health");
             sleep(1);
             pucciCrit();
 
@@ -257,7 +257,7 @@ class Program
         void prisonerAttack()
         {
 
-            Console.WriteLine($"The prisoner has {enemyHP} Health");
+            type($"The prisoner has {enemyHP} Health");
             sleep(1);
             prisonerCrit();
 
@@ -267,7 +267,7 @@ class Program
         void chefAttack()
         {
 
-            Console.WriteLine($"The Palace Chef has {enemyHP} Health");
+            type($"The Palace Chef has {enemyHP} Health");
             sleep(1);
             chefCrit();
 
@@ -278,11 +278,11 @@ class Program
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine("You get ready to release your anger upon your enemy!");
+            type("You get ready to release your anger upon your enemy!");
             sleep(1);
 
         playerSlashDamage = playerSlashDamage * 2;
-            Console.WriteLine($"You were able to slash your enemy with your weapon {playerSlashDamage} Damage!");
+            type($"You were able to slash your enemy with your weapon {playerSlashDamage} Damage!");
             sleep(1);
             enemyHP = enemyHP - playerSlashDamage;
             Console.ForegroundColor = ConsoleColor.White;
@@ -292,11 +292,11 @@ class Program
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine("You get ready to release your anger upon your enemy!");
+            type("You get ready to release your anger upon your enemy!");
             sleep(1);
 
             playerStabDamage = playerStabDamage * 2;
-            Console.WriteLine($"You managed to thrust your weapon into your enemy's body and dealt {playerStabDamage} Damage!");
+            type($"You managed to thrust your weapon into your enemy's body and dealt {playerStabDamage} Damage!");
             sleep(1);
             enemyHP = enemyHP - playerStabDamage;
             Console.ForegroundColor = ConsoleColor.White;
@@ -306,11 +306,11 @@ class Program
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine("You get ready to release your anger upon your enemy!");
+            type("You get ready to release your anger upon your enemy!");
             sleep(1);
 
             playerStabDamage = playerStabDamage * 2;
-            Console.WriteLine($"You were able to smack your enemy in the head with your frying pan and dealt {playerStabDamage} Damage!");
+            type($"You were able to smack your enemy in the head with your frying pan and dealt {playerStabDamage} Damage!");
             sleep(1);
             enemyHP = enemyHP - playerStabDamage;
             Console.ForegroundColor = ConsoleColor.White;
@@ -321,13 +321,13 @@ class Program
             if (playerblockchance == 1 && enemyCritchance != 1)
             {
                 sleep(1);
-                Console.WriteLine($"High Priest Pucci dealt you {enemydamage} damage ");
+                type($"High Priest Pucci dealt you {enemydamage} damage ");
                 sleep(1);
-                Console.WriteLine("However, you were able to put your guard up in time, and Pucci hardly dealt any damage to you");
+                type("However, you were able to put your guard up in time, and Pucci hardly dealt any damage to you");
                 sleep(1);
                 playerHP = playerHP - 1;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
 
             }
@@ -338,13 +338,13 @@ class Program
             if (playerblockchance == 1 && enemyCritchance != 1)
             {
                 sleep(1);
-                Console.WriteLine($"The prisoner dealt you {enemydamage} damage ");
+                type($"The prisoner dealt you {enemydamage} damage ");
                 sleep(1);
-                Console.WriteLine("However, you were able to put your guard up in time, and the prisoner hardly dealt any damage to you");
+                type("However, you were able to put your guard up in time, and the prisoner hardly dealt any damage to you");
                 sleep(1);
                 playerHP = playerHP - 1;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
 
             }
@@ -355,12 +355,12 @@ class Program
             if (playerblockchance == 1 && enemyCritchance != 1)
             {
                 sleep(1);
-                Console.WriteLine($"The Palace Chef attempted to deal you {enemydamage} damage ");
-                Console.WriteLine("However, you were able to put your guard up in time, and hardly dealt any damage to you");
+                type($"The Palace Chef attempted to deal you {enemydamage} damage ");
+                type("However, you were able to put your guard up in time, and hardly dealt any damage to you");
                 sleep(1);
                 playerHP = playerHP - 1;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
 
             }
@@ -371,14 +371,14 @@ class Program
             if (playerblockchance == 1 && enemyCritchance == 1)
             {
                 sleep(1);
-                Console.WriteLine("High Priest Pucci has contolled his emotions and packed them into a single devastating punch!");
+                type("High Priest Pucci has contolled his emotions and packed them into a single devastating punch!");
                 sleep(1);
-                Console.WriteLine("You attempted to block High Priest Pucci's attack, but he broke through your guard and hit you with his devastating punch!");
+                type("You attempted to block High Priest Pucci's attack, but he broke through your guard and hit you with his devastating punch!");
                 sleep(1);
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
 
             }
@@ -389,14 +389,14 @@ class Program
             if (playerblockchance == 1 && enemyCritchance == 1)
             {
                 sleep(1);
-                Console.WriteLine("The prisoner has contolled his emotions and packed them into a single devastating punch!");
+                type("The prisoner has contolled his emotions and packed them into a single devastating punch!");
                 sleep(1);
-                Console.WriteLine("You attempted to block the prisoner's attack, but he broke through your guard and hit you with his devastating punch!");
+                type("You attempted to block the prisoner's attack, but he broke through your guard and hit you with his devastating punch!");
                 sleep(1);
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
-                Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
                 sleep(1);
             }
         }
@@ -406,14 +406,14 @@ class Program
             if (playerblockchance == 1 && enemyCritchance == 1)
             {
                 sleep(1);
-                Console.WriteLine("The Palace Chef has contolled their emotions and packed them into a single devastating punch!");
+                type("The Palace Chef has contolled their emotions and packed them into a single devastating punch!");
                 sleep(1);
-                Console.WriteLine("You attempted to block The Palace Chef's attack, but they broke through your guard and hit you with their devastating attack!");
+                type("You attempted to block The Palace Chef's attack, but they broke through your guard and hit you with their devastating attack!");
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
                 checkDeath();
                 sleep(1);
-        Console.WriteLine($"You now have {playerHP} Health Left ");
+                type($"You now have {playerHP} Health Left ");
 
             }
         }
@@ -423,7 +423,7 @@ class Program
             if (playerHP <= 0)
             {
                 sleep(1);
-                Console.WriteLine("High Priest Pucci has defeated you and stolen your throne");
+               type("High Priest Pucci has defeated you and stolen your throne");
                 
                 sleep(1);
              }
@@ -434,7 +434,7 @@ class Program
             if (playerHP <= 0)
             {
                 sleep(1);
-                Console.WriteLine("The prisoner in your cell has defeated you and stolen your throne");
+                type("The prisoner in your cell has defeated you and stolen your throne");
                 sleep(1);
                 Environment.Exit(0);
             }
@@ -445,7 +445,7 @@ class Program
             if (playerHP <= 0)
             {
                 sleep(1);
-                Console.WriteLine("The Palace Chef has defeated you and allowed High Priest Pucci to steal your throne");
+               type("The Palace Chef has defeated you and allowed High Priest Pucci to steal your throne");
                 sleep(1);
                 Environment.Exit(0);
             }
@@ -460,10 +460,10 @@ class Program
                 sleep(1);
                 Console.WriteLine(deathMessage3);
                 sleep(1); ;
-                Console.WriteLine("You have now regained your rightful seat on your throne.");
+               type("You have now regained your rightful seat on your throne.");
                 sleep(1);
                 throne();
-                Console.WriteLine("Well Done");
+               type("Well Done");
                 sleep(1);
                 Environment.Exit(0);
             }
@@ -517,10 +517,10 @@ class Program
             {
                 case "cell":
                     sleep(1);
-                    Console.WriteLine("You woke up in your palace dungeon in a small cell with a light in it.");
+                   type("You woke up in your palace dungeon in a small cell with a light in it.");
                     cellroom();
                     e = 1;
-                    Console.WriteLine("A prisoner appears in your cell before you, what would you like to do? [Fight] [Flee]");
+                   type("A prisoner appears in your cell before you, what would you like to do? [Fight] [Flee]");
                     sleep(1);
                     fightflight = Console.ReadLine();
                     break;
@@ -529,7 +529,7 @@ class Program
                     sleep(1);
                     kitchenroom();
                     e = 2;
-                    Console.WriteLine("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
+                   type("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
                     sleep(1);
                     fightflight = Console.ReadLine();
                     break;
@@ -537,7 +537,7 @@ class Program
                 case "throneRoom":
                     sleep(1);
                     throneroom();
-                    Console.WriteLine("You proceeded from the Kitchen to the throne room. You are now in the presence of the High Priest Pucci! What would you like to do? [Fight] [Flee]?");
+                   type("You proceeded from the Kitchen to the throne room. You are now in the presence of the High Priest Pucci! What would you like to do? [Fight] [Flee]?");
                     sleep(1);
                     e = 3;
                     fightflight = Console.ReadLine();
@@ -552,7 +552,7 @@ class Program
             {
                 case "Fight":
                     sleep(1);
-                    Console.WriteLine("You decided to fight the enemy in front of you");
+                  type("You decided to fight the enemy in front of you");
                     sleep(1);
                     enemyChance = 1;
                     break;
@@ -560,9 +560,9 @@ class Program
                 case "Flee":
                     enemyChance = 0;
                     sleep(1);
-                    Console.WriteLine("You decided to flee from the enemy in front of you and run back down into the dungoen cell to lock yourself in.");
+                  type("You decided to flee from the enemy in front of you and run back down into the dungoen cell to lock yourself in.");
                     sleep(1);
-                    Console.WriteLine("You are now living in the palace dungeon cell for the rest of your life");
+                 type("You are now living in the palace dungeon cell for the rest of your life");
                     sleep(1);
                     Environment.Exit(0);
                     break;
@@ -589,7 +589,7 @@ class Program
 
             }
         }
-        //Function to make thread sleep better
+        //Function to make thread ssleep better
         void sleep(int seconds)
         {
             Thread.Sleep(seconds);
@@ -711,7 +711,7 @@ class Program
 
                                 else if (playerCritchance != 1)
                                 {
-                                    Console.WriteLine($"You smacked the Prisoner for {playerFryDamage} damage");
+                                   type($"You smacked the Prisoner for {playerFryDamage} damage");
                                     enemyHP = enemyHP - playerFryDamage;
                                 }
                                 checkDeath();
@@ -752,7 +752,7 @@ class Program
                     if (prisonerKilled == true)
                     {
                         sleep(1);
-                        Console.WriteLine("You have killed the prisoner and are now able to escape the prison cell, what would you like to do? [Leave] [Stay]");
+                       type("You have killed the prisoner and are now able to escape the prison cell, what would you like to do? [Leave] [Stay]");
                         sleep(1);
                         answer = Console.ReadLine();
                         if (answer == "Leave")
@@ -764,7 +764,7 @@ class Program
                         else if (answer == "Stay")
                         {
                             sleep(1);
-                            Console.WriteLine("You decided that it would be better for you to stay in the mangy palace dungeon cell for the rest of your days");
+                           type("You decided that it would be better for you to stay in the mangy palace dungeon cell for the rest of your days");
                             sleep(1);
                             Environment.Exit(0);
                         }
@@ -781,7 +781,7 @@ class Program
             {
 
 
-                Console.WriteLine(spawnMessage2);
+               type(spawnMessage2);
                 checkDeath();
                 Chef();
 
@@ -805,7 +805,7 @@ class Program
 
                                 else if (playerCritchance != 1)
                                 {
-                                    Console.WriteLine($"You were able to slash the Palace Chef for {playerSlashDamage} damage");
+                                   type($"You were able to slash the Palace Chef for {playerSlashDamage} damage");
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
 
@@ -832,7 +832,7 @@ class Program
 
                                 else if (playerCritchance != 1)
                                 {
-                                    Console.WriteLine($"You thrust  your weapon intothe Palace Chef for {playerStabDamage} damage");
+                                  type($"You thrust  your weapon intothe Palace Chef for {playerStabDamage} damage");
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
                                 checkDeath();
@@ -884,7 +884,7 @@ class Program
                                 else if (playerCritchance != 1)
                                 {
                                     checkDeath();
-                                    Console.WriteLine($"You were able to smack the Palace Chef for {playerFryDamage} damage");
+                                  type($"You were able to smack the Palace Chef for {playerFryDamage} damage");
                                     enemyHP = enemyHP - playerFryDamage;
                                 }
 
@@ -928,7 +928,7 @@ class Program
                     if (chefKilled == true)
                     {
 
-                        Console.WriteLine("You see two weapons in the kitchen before you leave, a knife and a frying pan, which would you like to take? [Knife] [FryingPan]");
+                      type("You see two weapons in the kitchen before you leave, a knife and a frying pan, which would you like to take? [Knife] [FryingPan]");
                         sleep(1);
                         string weaponChoice = Console.ReadLine();
                         if (weaponChoice == "Knife" ^ weaponChoice == "knife")
@@ -937,7 +937,7 @@ class Program
                             fryingPan = false;
                             sword = false;
                             checkDeath();
-                            Console.WriteLine("You decided to choose the knife");
+                            type("You decided to choose the knife");
                             sleep(1);
                         }
                         else if (weaponChoice == "FryingPan" ^ weaponChoice == "Fryingpan" ^ weaponChoice == "fryingpan")
@@ -947,15 +947,15 @@ class Program
                             sword = false;
                         }
                         Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.WriteLine("Now that you have killed the palace chef you are able to walk towards the throne room where High Priest Pucci resides on your rightful seat.");
+                        type("Now that you have killed the palace chef you are able to walk towards the throne room where High Priest Pucci resides on your rightful seat.");
                         sleep(1);
-                        Console.WriteLine("However, while walking there you come to the realisation that maybe he could be a beteer leader than you");
+                        type("However, while walking there you come to the realisation that maybe he could be a beteer leader than you");
                         sleep(1);
-                        Console.WriteLine("After coming to this realisation, you notice that you are right next to the palace entranceway.");
+                        type("After coming to this realisation, you notice that you are right next to the palace entranceway.");
                         sleep(1);
-                        Console.WriteLine("You now have to decide whether to leave the palace forever, or continue forwards to kill High Priest Pucci and take back your throne");
+                        type("You now have to decide whether to leave the palace forever, or continue forwards to kill High Priest Pucci and take back your throne");
                         sleep(1);
-                        Console.WriteLine("Which do you decide to do? [Continue] [Leave]");
+                        type("Which do you decide to do? [Continue] [Leave]");
                         sleep(1);
                         Console.ForegroundColor = ConsoleColor.White;
                         answer = Console.ReadLine();
@@ -969,7 +969,7 @@ class Program
                         else if (answer == "Leave")
                         {
                             sleep(1);
-                            Console.WriteLine("You decided that High Priest Pucci would be a better ruler of your kingdom than you would be, so you decided to leave the palace without killing him, and venture into the forests and live in a cabin");
+                            typee("You decided that High Priest Pucci would be a better ruler of your kingdom than you would be, so you decided to leave the palace without killing him, and venture into the forests and live in a cabin");
                             sleep(1);
                             Cabin();
                             Environment.Exit(0);
@@ -987,7 +987,7 @@ class Program
             {
 
                 checkDeath();
-                Console.WriteLine(spawnMessage3);
+                type(spawnMessage3);
                 checkDeath();
                 Pucci();
 
@@ -1161,7 +1161,7 @@ class Program
         //Function for the throne
         void throne()
         {
-            Console.WriteLine(@"        ▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓            
+            type(@"        ▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓            
         ▒▒▓▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓            
         ░░▒▒▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██            
           ▓▓▓▓▓▓██▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒            
@@ -1228,7 +1228,7 @@ class Program
         //Function for the Prison Cell
         void cellroom()
         {
-            Console.WriteLine(@"     \                  ###########                  /
+            type(@"     \                  ###########                  /
                               \                  #########                  /
                                \                                           /
                                 \                                         /
@@ -1274,7 +1274,7 @@ class Program
         //Function for the Kitchen
         void kitchenroom()
         {
-            Console.WriteLine(@"   ____________________________________________________________________    
+            type(@"   ____________________________________________________________________    
  /|    |__I__I__I__I__I__I__I__I__I_|       _-       %       %         |\
   | _- |_I__I__I__I__I__I__I__I__I__|-_              %       %     _-  | 
   |    |__I__I__I__I__I__I__I__I__I_|                %       %         |
@@ -1303,7 +1303,7 @@ class Program
         //Function for the throne room
         void throneroom()
         {
-            Console.WriteLine(@"██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
+            type(@"██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
 ██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
 ██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
 ██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
@@ -1352,7 +1352,7 @@ class Program
         //Function for the Prisoner
         void prisoner()
         {
-            Console.WriteLine(@"                     ▄██████▄                       
+            type(@"                     ▄██████▄                       
                      ▐████████Γ                      
                       ▀▒░&░░▒                        
                       ╘▄░▓▓░▐C                       
@@ -1395,7 +1395,7 @@ class Program
         //Function for Pucci
         void Pucci()
         {
-            Console.WriteLine(@"                                                                                                                                                                                  
+            type(@"                                                                                                                                                                                  
                                                 ▄█████▄                                   
                                              ▄█████████▓█                                 
                                              █▀███║▀███▒▀k                                
@@ -1470,7 +1470,7 @@ class Program
         //Function for the Chef
         void Chef()
         {
-            Console.WriteLine(@"       .--,--.
+            type(@"       .--,--.
                                `.  ,.'
                                 |___|
                                 :o o:   O    
@@ -1485,7 +1485,7 @@ class Program
         //Function for the Cabin
         void Cabin()
         {
-            Console.WriteLine(@"
+            type(@"
 .
                            (   )
                           (    )
