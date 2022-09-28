@@ -16,7 +16,7 @@ class Program
         string deathMessage3;
         int enemyChance = 0;
         int enemyHP = 1;
-        int playerHP = 100;
+        int playerHP = 10000;
         int enemydamage;
         int playerblockchance;
         int playerCritchance;
@@ -38,7 +38,7 @@ class Program
         spawnMessage3 = "High Priest Pucci appeared before you";
         spawnMessage2 = "The Palace Chef appeared before you";
         spawnMessage1 = "The enemy prisoner appeared before you";
-        deathMessage3 = "High Priest Pucci has finally been eliminated and you have regained your throne";
+        deathMessage3 = "Congratulations, you have defeated High Priest Pucci";
         deathMessage2 = "You deafeated the Palace Chef, no more food for a while";
         deathMessage1 = "You vanquished the enemy prisoner";
 
@@ -53,6 +53,13 @@ class Program
 
 
 
+void checkDeath()
+        {
+            if (playerHP <= 0)
+            {
+                playerHP = 0;
+            }
+        }
 
         void playerHeal()
         {
@@ -71,6 +78,7 @@ class Program
                 Console.ForegroundColor = ConsoleColor.White;
 
                 playerHP = playerHP + healthgain;
+                checkDeath();
                 Console.WriteLine($"You have {playerHP} Health");
             }
 
@@ -91,6 +99,7 @@ class Program
                     Console.ForegroundColor = ConsoleColor.White;
 
                     playerHP = playerHP + healthgain;
+                    checkDeath();
                     Console.WriteLine($"You have {playerHP} Health");
                 }
             }
@@ -155,6 +164,7 @@ class Program
 
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -168,6 +178,7 @@ class Program
 
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -181,6 +192,7 @@ class Program
 
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -192,6 +204,7 @@ class Program
             {
                 Console.WriteLine($"High Priest Pucci dealt you {enemydamage} damage ");
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -203,6 +216,7 @@ class Program
             {
                 Console.WriteLine($"The prisoner dealt you {enemydamage} damage ");
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -214,6 +228,7 @@ class Program
             {
                 Console.WriteLine($"The Palace Chef dealt you {enemydamage} damage ");
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -298,6 +313,7 @@ class Program
                 Console.WriteLine($"High Priest Pucci dealt you {enemydamage} damage ");
                 Console.WriteLine("However, you were able to put your guard up in time, and Pucci hardly dealt any damage to you");
                 playerHP = playerHP - 1;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
 
@@ -311,6 +327,7 @@ class Program
                 Console.WriteLine($"The prisoner dealt you {enemydamage} damage ");
                 Console.WriteLine("However, you were able to put your guard up in time, and the prisoner hardly dealt any damage to you");
                 playerHP = playerHP - 1;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
 
@@ -324,6 +341,7 @@ class Program
                 Console.WriteLine($"The Palace Chef attempted to deal you {enemydamage} damage ");
                 Console.WriteLine("However, you were able to put your guard up in time, and hardly dealt any damage to you");
                 playerHP = playerHP - 1;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
 
@@ -339,6 +357,7 @@ class Program
                 Console.WriteLine("You attempted to block High Priest Pucci's attack, but he broke through your guard and hit you with his devastating punch!");
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -353,6 +372,7 @@ class Program
                 Console.WriteLine("You attempted to block the prisoner's attack, but he broke through your guard and hit you with his devastating punch!");
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -367,6 +387,7 @@ class Program
                 Console.WriteLine("You attempted to block The Palace Chef's attack, but they broke through your guard and hit you with their devastating attack!");
                 enemydamage = enemydamage * 2;
                 playerHP = playerHP - enemydamage;
+                checkDeath();
                 Console.WriteLine($"You now have {playerHP} Health Left ");
 
             }
@@ -377,6 +398,7 @@ class Program
             if (playerHP <= 0)
             {
                 Console.WriteLine("High Priest Pucci has defeated you and stolen your throne");
+                Environment.Exit(0);
             }
         }
 
@@ -385,22 +407,18 @@ class Program
             if (playerHP <= 0)
             {
                 Console.WriteLine("The prisoner in your cell has defeated you and stolen your throne");
+                Environment.Exit(0);
             }
         }
 
-        void checkDeath()
-        {
-            if (playerHP <= 0)
-            {
-                playerHP = 0;
-            }
-        }
+        
 
         void chefKill()
         {
             if (playerHP <= 0)
             {
                 Console.WriteLine("The Palace Chef has defeated you and allowed High Priest Pucci to steal your throne");
+                Environment.Exit(0);
             }
         }
 
@@ -411,6 +429,70 @@ class Program
                 enemySpawned = 0;
                 pucciKilled = true;
                 Console.WriteLine(deathMessage3);
+                Console.WriteLine("You have now regained your rightful seat on your throne.");
+                Console.WriteLine(@"        ▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓            
+        ▒▒▓▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓            
+        ░░▒▒▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██            
+          ▓▓▓▓▓▓██▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒            
+          ▓▓▓▓████▓▓▓▓▒▒▓▓▓▓▓▓▓▓████▓▓▓▓████▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒              
+          ░░▓▓▓▓▓▓██▓▓▒▒▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▒▒██▓▓▓▓▒▒▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓██              
+            ▓▓██▓▓██▓▓▒▒▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒              
+            ▓▓████▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓▓▓██▓▓▓▓▓▓                
+            ░░▓▓██▓▓██▓▓▓▓██████▒▒▓▓████▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▒▒▓▓                
+              ▓▓██▓▓██▓▓▓▓▓▓██▓▓▓▓▓▓████▒▒▓▓████▓▓██████████▓▓▓▓▓▓                  
+              ▓▓▓▓██▓▓██▒▒▓▓▓▓▓▓▒▒▓▓▓▓▓▓▒▒▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓██▓▓▒▒▒▒                  
+              ░░▓▓██▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓██▒▒                    
+                ▓▓██████▓▓▓▓▓▓▓▓████▓▓▓▓████▒▒▓▓██▒▒▓▓▓▓██▓▓▒▒▓▓                    
+                ▓▓████████▓▓▓▓▓▓████▓▓▓▓▓▓██▓▓████▓▓▓▓▓▓▓▓██░░                      
+                ░░▓▓██████▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓██▓▓▓▓▒▒                      
+                  ▓▓██▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓                      
+                  ▓▓████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▒▒░░                      
+                  ░░████████▓▓▓▓▓▓▓▓████▒▒▓▓██▓▓▓▓▓▓██▓▓██▒▒                        
+                    ████▓▓▓▓██▓▓▓▓▓▓▒▒▓▓▓▓▓▓▒▒▓▓▓▓▓▓██▓▓▓▓▓▓                        
+                    ▓▓██▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░                        
+                    ▓▓████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓▓██▓▓                          
+                    ░░▓▓████████████▓▓██████▓▓██████▓▓██▓▓                          
+                      ██████▓▓▓▓▒▒██▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▒▒                          
+                      ████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░                          
+                      ██████▓▓▓▓▒▒▓▓██▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓                            
+                  ▓▓▓▓██████▓▓▓▓▓▓▓▓████▓▓████▓▓▓▓▓▓▓▓████▓▓                        
+                  ▓▓████▓▓██▓▓▒▒▓▓▓▓▒▒▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓████                        
+              ░░▒▒████▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▓▓░░                    
+        ░░▒▒▒▒▓▓▓▓██▓▓██▓▓██▓▓▓▓████▓▓████▓▓▓▓▓▓██▓▓████████▓▓▓▓▓▓▓▓▒▒▒▒░░          
+      ▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓██████▓▓▓▓████████████▓▓████▓▓██████████▓▓▓▓▓▓▓▓▒▒▒▒▒▒░░      
+    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████▒▒██▓▓██▓▓██▓▓▒▒██▓▓██████████████▓▓▓▓▓▓▓▓▓▓▓▓▒▒    
+  ▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██████████▓▓▓▓▓▓████▓▓▓▓▓▓▓▓▓▓████████████████▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓  
+  ▓▓▓▓▓▓████▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓████▓▓▓▓▓▓▓▓▓▓██████████████▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒
+░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████▓▓▓▓██████▓▓██▓▓▓▓▓▓████████████▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████▓▓████████████▓▓████████████████▓▓▓▓▓▓██▓▓▒▒▓▓▓▓████
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████████████████████████▓▓▓▓▓▓▓▓▓▓██▓▓██████
+  ▒▒████▓▓████▓▓▓▓▓▓████████████████████████████████████████████▓▓▓▓▓▓██████████▓▓██
+  ▒▒██████████████▓▓████████████████████████████████████████████▓▓▓▓██████████▓▓▓▓  
+    ▓▓██▓▓▓▓████▓▓▓▓████████████████████████████████████████████▓▓▓▓▓▓██████▓▓▓▓    
+      ▓▓▓▓████████▓▓████████████████████████▓▓██████████████████▓▓▓▓▓▓██████████    
+      ▓▓████████▓▓▒▒████████████████████████▓▓██████████████████▓▓▓▓██▓▓████████▓▓  
+    ▓▓████████▓▓▒▒▓▓████████████████████████▓▓████████████████████▓▓▓▓▓▓▓▓██▓▓▓▓▓▓  
+    ▒▒▓▓▓▓▓▓▓▓██▒▒▓▓████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████▓▓▓▓██████████  
+    ██▓▓▓▓▓▓██▓▓▓▓██████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████▓▓▓▓▓▓██████▒▒  
+    ▒▒██████▓▓▓▓▓▓██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██▓▓▓▓▓▓▓▓██████  
+    ▒▒██▓▓██▓▓▓▓▓▓████▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓████████  
+    ▓▓██████████████▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▒▒████████  
+    ████████▓▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████▓▓████████████▓▓██████    
+    ▒▒████████▓▓██▓▓████████████████████████████████████████████▓▓▓▓▓▓▓▓██▓▓████    
+      ██▓▓▒▒▓▓██▓▓██▓▓▓▓██▒▒▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒██▓▓██▓▓▓▓▓▓████▓▓██████████████████    
+      ▓▓██████████████▓▓██▓▓▓▓████▓▓▓▓▓▓▓▓▓▓██████████████████████▓▓▓▓██████████    
+      ▓▓▓▓██████████████████████████████▓▓██████▓▓██████████▓▓████  ██████████▓▓    
+      ▓▓████████░░░░░░████▓▓██▓▓▓▓▓▓██▓▓████▓▓▓▓██▓▓██████▒▒▓▓░░    ██▓▓▓▓██▓▓      
+      ░░██▓▓▓▓██      ████▓▓▒▒████████▓▓████▓▓████▓▓▓▓▓▓██          ▓▓██████▓▓▒▒    
+      ▒▒██▓▓▓▓▓▓              ░░████▒▒████████████▓▓████              ▓▓██▓▓██▓▓    
+      ░░████████                  ▓▓▓▓░░  ▒▒██▒▒                      ▓▓▓▓▓▓▓▓      
+      ▓▓████▓▓▓▓                                                      ▒▒████▓▓      
+      ░░▓▓▓▓▓▓▒▒                                                        ██▓▓██▓▓    
+        ▓▓████                                                          ▒▒▓▓▓▓      
+      ░░▓▓▒▒▓▓                                                            ▒▒▒▒      
+      ▒▒▓▓▓▓░░                                                                      
+        ▓▓██░░                                                                      ");
+                Console.WriteLine("Well Done");
                 Environment.Exit(0);
             }
         }
@@ -422,6 +504,9 @@ class Program
                 enemySpawned = 0;
                 prisonerKilled = true;
                 Console.WriteLine(deathMessage1);
+                
+
+             
             }
         }
 
@@ -441,8 +526,18 @@ class Program
             enemyCritchance = rnd.Next(0, 10);
 
             playerblockchance = rnd.Next(0, 6);
-            playerSlashDamage = rnd.Next(10000, 150000);
-            playerStabDamage = rnd.Next(2, 75);
+            if (sword == true && knife == false && fryingPan == false)
+            {
+                playerSlashDamage = rnd.Next(20, 90);
+                playerStabDamage = rnd.Next(2, 75);
+            }
+
+            else if (sword == false && knife == true && fryingPan == false)
+            {
+                playerSlashDamage = rnd.Next(30, 120);
+                playerStabDamage = rnd.Next(7, 100);
+            }
+
             playerFryDamage = rnd.Next(0, 50);
             enemydamage = rnd.Next(9, 50);
         }
@@ -526,8 +621,9 @@ class Program
   |    |  | //!\  @@)@@)@@@( /!\\ |  | ||   _--      \   /   ||  /|\   |
   |__lc|__|/_____________________\|__|_||____________/###\___||_|||||__|
  / -_  _ -      _ -   _-_    -  _ - _ -|| -_    _  - \___/_- || |||||-_ \ ");
-                    Console.WriteLine("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
                     e = 2;
+                    Console.WriteLine("You chose to enter the kitchen, and the chef appears before you, what would you like to do? [Fight] [Flee]");
+                   
                     fightflight = Console.ReadLine();
                     break;
 
@@ -627,11 +723,12 @@ class Program
         roomSwitch();
         fightFlight();
         eswitch();
+        checkDeath();
 
         if (enemyChance == 1)
         {
 
-            if (enemySpawned == 1)
+            if (e == 1)
             {
                 Console.WriteLine(spawnMessage1);
 
@@ -681,13 +778,13 @@ class Program
                     {
                         prisonerMsg();
                         answer = Console.ReadLine();
-
+                        checkDeath();
                         if (fryingPan != true)
                         {
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
                                     playerSlashCrit();
@@ -703,16 +800,16 @@ class Program
                                 {
                                     prisonerAttack();
                                 }
-
+                                checkDeath();
                                 prisonerDeath();
-
+                                checkDeath();
                                 prisonerKill();
                             }
 
                             if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
                                     playerStabCrit();
@@ -728,9 +825,10 @@ class Program
                                 {
                                     prisonerAttack();
                                 }
-
+                                checkDeath();
                                 prisonerDeath();
-
+                                checkDeath();
+                                checkDeath();
                                 prisonerKill();
                             }
 
@@ -739,10 +837,12 @@ class Program
 
                                 rndDam();
                                 playerblockchance = 1;
-
+                                checkDeath();
                                 blockedPrisoner();
                                 blockedPrisonerFail();
+                                checkDeath();
                                 prisonerKill();
+                                checkDeath();
                             }
                         }
 
@@ -751,7 +851,7 @@ class Program
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
                                     playerFryCrit();
@@ -762,14 +862,14 @@ class Program
                                     Console.WriteLine($"You smacked the Prisoner for {playerFryDamage} damage");
                                     enemyHP = enemyHP - playerFryDamage;
                                 }
-
+                                checkDeath();
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
                                     prisonerAttack();
                                 }
-
+                                checkDeath();
                                 prisonerDeath();
-
+                                checkDeath();
                                 prisonerKill();
                             }
 
@@ -777,9 +877,10 @@ class Program
                             {
                                 rndDam();
                                 playerblockchance = 1;
-
+                                checkDeath();
                                 blockedPrisoner();
                                 blockedPrisonerFail();
+                                checkDeath();
                                 prisonerKill();
 
                             }
@@ -788,8 +889,9 @@ class Program
                             {
                                 rndDam();
                                 playerHeal();
-
+                                checkDeath();
                                 prisonerDeath();
+                                checkDeath();
                                 prisonerKill();
                             }
 
@@ -812,6 +914,7 @@ class Program
                     }
                     roomSwitch();
                     fightFlight();
+                    checkDeath();
                     eswitch();
                 }
             }
@@ -822,7 +925,7 @@ class Program
 
 
                 Console.WriteLine(spawnMessage2);
-
+                checkDeath();
                 Console.WriteLine(@"       .--,--.
                                `.  ,.'
                                 |___|
@@ -841,13 +944,13 @@ class Program
                     {
                         chefMsg();
                         answer = Console.ReadLine();
-
+                        checkDeath();
                         if (fryingPan != true)
                         {
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
                                     playerSlashCrit();
@@ -862,33 +965,35 @@ class Program
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
                                     chefAttack();
+                                    checkDeath();
                                 }
 
                                 chefDeath();
-
+                                checkDeath();
                                 chefKill();
                             }
 
-                            if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
+                            if (answer == "Stab" ^ answer == "stab" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
                                     playerStabCrit();
+                                    checkDeath();
                                 }
-
+                                
                                 else if (playerCritchance != 1)
                                 {
-                                    Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerStabDamage} damage");
+                                    Console.WriteLine($"You thrust  your weapon intothe Palace Chef for {playerStabDamage} damage");
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
-
+                                checkDeath();
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
                                     chefAttack();
                                 }
-
+                                checkDeath();
                                 chefDeath();
 
                                 chefKill();
@@ -899,7 +1004,7 @@ class Program
 
                                 rndDam();
                                 playerblockchance = 1;
-
+                                checkDeath();
                                 blockedChef();
                                 blockedChefFail();
                                 chefKill();
@@ -908,11 +1013,11 @@ class Program
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 playerHeal();
-
+                                checkDeath();
                                 chefDeath();
-
+                                checkDeath();
                                 chefKill();
                             }
                         }
@@ -921,6 +1026,7 @@ class Program
                         {
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
+                                checkDeath();
                                 rndDam();
 
                                 if (playerCritchance == 1)
@@ -930,50 +1036,74 @@ class Program
 
                                 else if (playerCritchance != 1)
                                 {
+                                    checkDeath();
                                     Console.WriteLine($"You were able to smack the Palace Chef for {playerFryDamage} damage");
                                     enemyHP = enemyHP - playerFryDamage;
                                 }
 
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
+                                    checkDeath();
                                     chefAttack();
                                 }
-
+                                checkDeath();
                                 chefDeath();
-
+                                checkDeath();
                                 chefKill();
                             }
 
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
-
+                                checkDeath();
                                 rndDam();
                                 playerblockchance = 1;
-
+                                checkDeath();
                                 blockedChef();
                                 blockedChefFail();
                                 chefKill();
+                                checkDeath();
                             }
 
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 playerHeal();
-
+                                checkDeath();
                                 chefDeath();
-
+                                checkDeath();
                                 chefKill();
-
+                                checkDeath();
 
                             }
                         }
                     }
                     if (chefKilled == true)
                     {
-                        Console.WriteLine("Now that you have killed the palace chef you are able to walk towards the throne room where High Priest Pucci resides on your rightful seat. However, while walking there you come to the realisation that maybe he could be a beteer leader than you");
-                        Console.WriteLine("After coming to this realisation, you notice that you are right next to the palace entranceway. You now have to decide whether to leave the palace forever, or continue forwards to kill High Priest Pucci and take back your throne");
+                        
+                        Console.WriteLine("You see two weapons in the kitchen before you leave, a knife and a frying pan, which would you like to take? [Knife] [FryingPan]");
+                        string weaponChoice = Console.ReadLine();
+                        if (weaponChoice == "Knife" ^ weaponChoice == "knife")
+                        {
+                            knife = true;
+                            fryingPan = false;
+                            sword = false;
+                            checkDeath();
+                            Console.WriteLine("You decided to choose the knife");
+                        }
+                        else if (weaponChoice == "FryingPan" ^ weaponChoice == "Fryingpan" ^ weaponChoice == "fryingpan")
+                        {
+                            fryingPan = true;
+                            knife = false;
+                            sword = false;
+                        }
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Now that you have killed the palace chef you are able to walk towards the throne room where High Priest Pucci resides on your rightful seat.");                                                   
+                        Console.WriteLine("However, while walking there you come to the realisation that maybe he could be a beteer leader than you");   
+                        Console.WriteLine("After coming to this realisation, you notice that you are right next to the palace entranceway.");
+                        Console.WriteLine("You now have to decide whether to leave the palace forever, or continue forwards to kill High Priest Pucci and take back your throne");
                         Console.WriteLine("Which do you decide to do? [Continue] [Leave]");
+                        Console.ForegroundColor = ConsoleColor.White;
                         answer = Console.ReadLine();
                         if (answer == "Continue")
                         {
@@ -984,23 +1114,44 @@ class Program
                         else if (answer == "Leave")
                         {
                             Console.WriteLine("You decided that High Priest Pucci would be a better ruler of your kingdom than you would be, so you decided to leave the palace without killing him, and venture into the forests and live in a cabin");
-                            Console.WriteLine(@"");
+                            Console.WriteLine(@"
+.
+                           (   )
+                          (    )
+                           (    )
+                          (    )
+                            )  )
+                           (  (                  /\
+                            (_)                 /  \  /\
+                    ________[_]________      /\/    \/  \
+           /\      /\        ______    \    /   /\/\  /\/\
+          /  \    //_\       \    /\    \  /\/\/    \/    \
+   /\    / /\/\  //___\       \__/  \    \/
+  /  \  /\/    \//_____\       \ |[]|     \
+ /\/\/\/       //_______\       \|__|      \
+/      \      /XXXXXXXXXX\                  \
+        \    /_I_II  I__I_\__________________\
+               I_I|  I__I_____[]_|_[]_____I
+               I_II  I__I_____[]_|_[]_____I
+               I II__I  I     XXXXXXX     I
+            ~~~~~""   ""~~~~~~~~~~~~~~~~~~~~~~~~");
                             Environment.Exit(0);
                         }
                     }
                 }
-                roomSwitch();
+                
                 fightFlight();
                 eswitch();
+                checkDeath();
             }
 
 
             if (prisonerKilled == true && chefKilled == true && e == 3)
             {
 
-
+                checkDeath();
                 Console.WriteLine(spawnMessage3);
-
+                checkDeath();
                 Console.WriteLine(@"                                                                                                                                                                                  
                                                 ▄█████▄                                   
                                              ▄█████████▓█                                 
@@ -1076,58 +1227,68 @@ class Program
 
                 if (enemySpawned == 3)
                 {
+                    checkDeath();
                     while (enemySpawned == 3)
                     {
+                        checkDeath();
                         pucciMsg();
                         answer = Console.ReadLine();
 
                         if (fryingPan != true)
                         {
+                            checkDeath();
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
+                                checkDeath();
                                 rndDam();
 
                                 if (playerCritchance == 1)
                                 {
+                                    checkDeath();
                                     playerSlashCrit();
                                 }
 
                                 else if (playerCritchance != 1)
                                 {
+                                    checkDeath();
                                     Console.WriteLine($"You slashed your weapon at High Priest Pucci for {playerSlashDamage} damage");
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
 
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
+                                    checkDeath();
                                     pucciAttack();
                                 }
-
+                                checkDeath();
                                 pucciDeath();
-
+                                checkDeath();
                                 pucciKill();
                             }
 
                             if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
-
+                                checkDeath();
                                 if (playerCritchance == 1)
                                 {
+                                    checkDeath();
                                     playerStabCrit();
                                 }
 
                                 else if (playerCritchance != 1)
                                 {
+                                    checkDeath();
                                     Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerStabDamage} damage");
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
 
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
+                                    checkDeath();
                                     pucciAttack();
                                 }
-
+                                checkDeath();
                                 pucciDeath();
 
                                 pucciKill();
@@ -1135,10 +1296,10 @@ class Program
 
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
-
+                                checkDeath();
                                 rndDam();
                                 playerblockchance = 1;
-
+                                checkDeath();
                                 blockedPucci();
                                 blockedPucciFail();
                                 pucciKill();
@@ -1149,31 +1310,36 @@ class Program
                         {
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
+                                checkDeath();
                                 rndDam();
 
                                 if (playerCritchance == 1)
                                 {
+                                    checkDeath();
                                     playerFryCrit();
                                 }
 
                                 else if (playerCritchance != 1)
                                 {
+                                    checkDeath();
                                     Console.WriteLine($"You smacked High Priest Pucci for {playerFryDamage} damage");
                                     enemyHP = enemyHP - playerFryDamage;
                                 }
 
                                 if (enemyHP > 0 && playerHP > 0)
                                 {
+                                    checkDeath();
                                     pucciAttack();
                                 }
-
+                                checkDeath();
                                 pucciDeath();
-
+                                checkDeath();
                                 pucciKill();
                             }
 
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
+                                checkDeath();
                                 rndDam();
                                 playerblockchance = 1;
 
@@ -1185,6 +1351,7 @@ class Program
 
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
+                                checkDeath();
                                 rndDam();
                                 playerHeal();
 
@@ -1195,7 +1362,7 @@ class Program
                         }
                     }
 
-
+                    checkDeath();
                     roomSwitch();
                     fightFlight();
                     eswitch();
@@ -1203,6 +1370,9 @@ class Program
                 }
             }
         }
+
+  
+       
 
         else if (enemyChance != 1)
         {
