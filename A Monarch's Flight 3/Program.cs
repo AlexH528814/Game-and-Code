@@ -1,23 +1,20 @@
-﻿using System;
+﻿//The differnt using Systems are because some of the functions i created use different directives
+using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
 
 class Program
 {
+    //Main Function
     public static void Main(string[] args)
     {
-        // I have not added comments all throughout the code yet, but I am planning on doing that soon
+        // 14 to 56 are the different variables for my code
 
         Random rnd = new Random();
-        string spawnMessage1;
-        string spawnMessage2;
-        string spawnMessage3;
-        string deathMessage1;
-        string deathMessage2;
-        string deathMessage3;
         int enemyChance = 0;
         int enemyHP = 1;
-        int playerHP = 10000;
+        int playerHP = 200;
         int enemydamage;
         int playerblockchance;
         int playerCritchance;
@@ -29,22 +26,22 @@ class Program
         int playerFryDamage = 0;
         int e = 0;
         int enemySpawned = 0;
-
         string room = "cell";
         string answer = "n";
         string movechoice = "";
-        string fightflight = "";
-
-
+        string fightflight = ""; 
+        string spawnMessage3;
+        string spawnMessage1;
+        string spawnMessage2;
+        string deathMessage1;
+        string deathMessage2;
+        string deathMessage3;
         spawnMessage3 = "High Priest Pucci appeared before you";
         spawnMessage2 = "The Palace Chef appeared before you";
         spawnMessage1 = "The enemy prisoner appeared before you";
         deathMessage3 = "Congratulations, you have defeated High Priest Pucci";
         deathMessage2 = "You deafeated the Palace Chef, no more food for a while";
         deathMessage1 = "You vanquished the enemy prisoner";
-
-        bool blocking = false;
-
         bool sword = true;
         bool fryingPan = false;
         bool knife = false;
@@ -52,8 +49,19 @@ class Program
         bool prisonerKilled = false;
         bool pucciKilled = false;
 
+        // Function to type letter by letter
 
-
+        void type(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                Console.Write(word[i]);
+                System.Threading.
+                Thread.Sleep(50);
+            }
+            Console.WriteLine(" ");
+        }
+        // Function to check death
         void checkDeath()
         {
             if (playerHP <= 0)
@@ -61,7 +69,7 @@ class Program
                 playerHP = 0;
             }
         }
-
+        // Function to heal player
         void playerHeal()
         {
             if (Heals > 0)
@@ -77,13 +85,11 @@ class Program
                 Console.WriteLine($"You Gain {healthgain} Health!");
                 sleep(1);
                 Console.ForegroundColor = ConsoleColor.White;
-
                 playerHP = playerHP + healthgain;
                 checkDeath();
                 Console.WriteLine($"You have {playerHP} Health");
                 sleep(1); 
             }
-
             else if (Heals! > 0)
             {
                 if (Heals > 0)
@@ -107,7 +113,7 @@ class Program
                 }
             }
         }
-
+        //Function for when Pucci spawns in
         void pucciMsg()
         {
             Console.WriteLine($"High Priest Pucci has {enemyHP} Health");
@@ -116,7 +122,6 @@ class Program
             if (fryingPan != true)
             {
                 Console.WriteLine("What would you like to do? [Slash] [Stab] [Block] [Heal]");
-
             }
 
             else
@@ -124,7 +129,7 @@ class Program
                 Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
             }
         }
-
+        //Function for when Prisoner spawns in
         void prisonerMsg()
         {
             Console.WriteLine($"The enemy prisoner has {enemyHP} Health");
@@ -141,7 +146,7 @@ class Program
                 Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
             }
         }
-
+        //Function for when Chef spawns in
         void chefMsg()
         {
             Console.WriteLine($"The Palace Chef has {enemyHP} Health");
@@ -158,7 +163,7 @@ class Program
                 Console.WriteLine("What would you like to do [Smack] [Block] [Heal]");
             }
         }
-
+        //Function for when Pucci crits
         void pucciCrit()
         {
             if (enemyCritchance == 1)
@@ -172,7 +177,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Prisoner Crits
         void prisonerCrit()
         {
             if (enemyCritchance == 1)
@@ -186,7 +191,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Chef Crits
         void chefCrit()
         {
             if (enemyCritchance == 1)
@@ -200,7 +205,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Pucci fails to crit
         void pucciCritless()
         {
             if (enemyCritchance != 1)
@@ -212,7 +217,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Prisoner fails to crit
         void prisonerCritless()
         {
             if (enemyCritchance != 1)
@@ -225,7 +230,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Chef fails to crit
         void chefCritless()
         {
             if (enemyCritchance != 1)
@@ -238,7 +243,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Pucci attacks
         void pucciAttack()
         {
 
@@ -248,7 +253,7 @@ class Program
 
             pucciCritless();
         }
-
+        //Function for when Prisoner attacks
         void prisonerAttack()
         {
 
@@ -258,7 +263,7 @@ class Program
 
             prisonerCritless();
         }
-
+        //Function for when Chef attacks
         void chefAttack()
         {
 
@@ -268,7 +273,7 @@ class Program
 
             chefCritless();
         }
-
+        //Function for when Players crits with a slash
         void playerSlashCrit()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -282,7 +287,7 @@ class Program
             enemyHP = enemyHP - playerSlashDamage;
             Console.ForegroundColor = ConsoleColor.White;
         }
-
+        //Function for when Players crits with a stab
         void playerStabCrit()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -296,7 +301,7 @@ class Program
             enemyHP = enemyHP - playerStabDamage;
             Console.ForegroundColor = ConsoleColor.White;
         }
-
+        //Function for when Players crits with a smack
         void playerFryCrit()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -310,7 +315,7 @@ class Program
             enemyHP = enemyHP - playerStabDamage;
             Console.ForegroundColor = ConsoleColor.White;
         }
-
+        //Function for when Players blocks Puccis attack
         void blockedPucci()
         {
             if (playerblockchance == 1 && enemyCritchance != 1)
@@ -327,7 +332,7 @@ class Program
 
             }
         }
-
+        //Function for when Players blocks Prisoner's attack
         void blockedPrisoner()
         {
             if (playerblockchance == 1 && enemyCritchance != 1)
@@ -344,7 +349,7 @@ class Program
 
             }
         }
-
+        //Function for when Players blocks Chef attack
         void blockedChef()
         {
             if (playerblockchance == 1 && enemyCritchance != 1)
@@ -360,7 +365,7 @@ class Program
 
             }
         }
-
+        //Function for when Players fails to block Pucci's attack
         void blockedPucciFail()
         {
             if (playerblockchance == 1 && enemyCritchance == 1)
@@ -378,7 +383,7 @@ class Program
 
             }
         }
-
+        //Function for when Players fails to block Prisoner's attack
         void blockedPrisonerFail()
         {
             if (playerblockchance == 1 && enemyCritchance == 1)
@@ -395,7 +400,7 @@ class Program
                 sleep(1);
             }
         }
-
+        //Function for when Players fails to block Chef's attack
         void blockedChefFail()
         {
             if (playerblockchance == 1 && enemyCritchance == 1)
@@ -412,7 +417,7 @@ class Program
 
             }
         }
-
+        //Function for when Pucci kills player
         void pucciKill()
         {
             if (playerHP <= 0)
@@ -423,7 +428,7 @@ class Program
                 sleep(1);
              }
         }
-
+        //Function for when Prisoner kills player
         void prisonerKill()
         {
             if (playerHP <= 0)
@@ -434,9 +439,7 @@ class Program
                 Environment.Exit(0);
             }
         }
-
-
-
+        //Function for when Chef kills player
         void chefKill()
         {
             if (playerHP <= 0)
@@ -447,7 +450,7 @@ class Program
                 Environment.Exit(0);
             }
         }
-
+        //Function for when Pucci dies
         void pucciDeath()
         {
             if (enemyHP <= 0)
@@ -465,23 +468,17 @@ class Program
                 Environment.Exit(0);
             }
         }
-
+        //Function for when Prisoner dies
         void prisonerDeath()
         {
             if (enemyHP <= 0)
             {
                 enemySpawned = 0;
                 prisonerKilled = true;
-                Console.WriteLine(deathMessage1);
-                
-               
-
-
+                Console.WriteLine(deathMessage1);                              
             }
         }
-
-
-
+        //Function for when Chef dies
         void chefDeath()
         {
             if (enemyHP <= 0)
@@ -491,7 +488,7 @@ class Program
                 Console.WriteLine(deathMessage2);
             }
         }
-
+        //Random Damage Function
         void rndDam()
         {
             playerCritchance = rnd.Next(0, 10);
@@ -513,7 +510,7 @@ class Program
             playerFryDamage = rnd.Next(0, 50);
             enemydamage = rnd.Next(9, 50);
         }
-
+        //Function for room switch
         void roomSwitch()
         {
             switch (room)
@@ -548,7 +545,7 @@ class Program
             }
 
         }
-
+        //Function for attacking or running
         void fightFlight()
         {
             switch (fightflight)
@@ -572,7 +569,7 @@ class Program
 
             }
         }
-
+        //Function to switch enemy
         void eswitch()
         {
             switch (e)
@@ -592,15 +589,20 @@ class Program
 
             }
         }
+        //Function to make thread sleep better
+        void sleep(int seconds)
+        {
+            Thread.Sleep(seconds);
+        }
 
         roomSwitch();
         fightFlight();
         eswitch();
         checkDeath();
-
+        //Enemy attack area
         if (enemyChance == 1)
         {
-
+            //Prisoner attack area
             if (e == 1)
             {
                 sleep(1);
@@ -616,7 +618,7 @@ class Program
                         answer = Console.ReadLine();
                         checkDeath();
                         if (fryingPan != true)
-                        {
+                        {   //Player chose slash
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
@@ -643,8 +645,8 @@ class Program
                                 checkDeath();
                                 prisonerKill();
                             }
-
-                            if (answer == "Thrust" ^ answer == "thrust" ^ answer == "2" ^ answer == "t")
+                            //Player chose Stab
+                            if (answer == "Stab" ^ answer == "stab" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
                                 checkDeath();
@@ -656,7 +658,7 @@ class Program
                                 else if (playerCritchance != 1)
                                 {
                                     sleep(1);
-                                    Console.WriteLine($"You thrust  your weapon into High Priest Pucci for {playerStabDamage} damage");
+                                    Console.WriteLine($"You thrust your weapon into High Priest Pucci for {playerStabDamage} damage");
                                     sleep(1);
                                     enemyHP = enemyHP - playerSlashDamage;
                                 }
@@ -671,7 +673,7 @@ class Program
                                 checkDeath();
                                 prisonerKill();
                             }
-
+                            //Player chose block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
 
@@ -684,10 +686,20 @@ class Program
                                 prisonerKill();
                                 checkDeath();
                             }
+                            //Player chose heal
+                            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+                            {
+                                rndDam();
+                                playerHeal();
+                                checkDeath();
+                                prisonerDeath();
+                                checkDeath();
+                                prisonerKill();
+                            }
                         }
 
                         else if (fryingPan == true)
-                        {
+                        {   //Player chose Smack
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
@@ -712,7 +724,7 @@ class Program
                                 checkDeath();
                                 prisonerKill();
                             }
-
+                            //Player chose Block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
                                 rndDam();
@@ -724,7 +736,7 @@ class Program
                                 prisonerKill();
 
                             }
-
+                            //Player chose heal
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 rndDam();
@@ -781,7 +793,7 @@ class Program
                         answer = Console.ReadLine();
                         checkDeath();
                         if (fryingPan != true)
-                        {
+                        {   //Player chose slash
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
                                 rndDam();
@@ -807,7 +819,7 @@ class Program
                                 checkDeath();
                                 chefKill();
                             }
-
+                            //Player chose Stab
                             if (answer == "Stab" ^ answer == "stab" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
@@ -833,7 +845,7 @@ class Program
 
                                 chefKill();
                             }
-
+                            //Player chose Block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
 
@@ -844,7 +856,7 @@ class Program
                                 blockedChefFail();
                                 chefKill();
                             }
-
+                            //Player chose heal
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 rndDam();
@@ -858,7 +870,7 @@ class Program
                         }
 
                         else if (fryingPan == true)
-                        {
+                        {   //Player chose Smack
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
                                 checkDeath();
@@ -886,7 +898,7 @@ class Program
                                 checkDeath();
                                 chefKill();
                             }
-
+                            //Player chose Block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
                                 checkDeath();
@@ -898,7 +910,7 @@ class Program
                                 chefKill();
                                 checkDeath();
                             }
-
+                            //Player chose heal
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 rndDam();
@@ -959,27 +971,7 @@ class Program
                             sleep(1);
                             Console.WriteLine("You decided that High Priest Pucci would be a better ruler of your kingdom than you would be, so you decided to leave the palace without killing him, and venture into the forests and live in a cabin");
                             sleep(1);
-                            Console.WriteLine(@"
-.
-                           (   )
-                          (    )
-                           (    )
-                          (    )
-                            )  )
-                           (  (                  /\
-                            (_)                 /  \  /\
-                    ________[_]________      /\/    \/  \
-           /\      /\        ______    \    /   /\/\  /\/\
-          /  \    //_\       \    /\    \  /\/\/    \/    \
-   /\    / /\/\  //___\       \__/  \    \/
-  /  \  /\/    \//_____\       \ |[]|     \
- /\/\/\/       //_______\       \|__|      \
-/      \      /XXXXXXXXXX\                  \
-        \    /_I_II  I__I_\__________________\
-               I_I|  I__I_____[]_|_[]_____I
-               I_II  I__I_____[]_|_[]_____I
-               I II__I  I     XXXXXXX     I
-            ~~~~~""   ""~~~~~~~~~~~~~~~~~~~~~~~~");
+                            Cabin();
                             Environment.Exit(0);
                         }
                     }
@@ -990,7 +982,7 @@ class Program
                 checkDeath();
             }
 
-
+            //Only Spawns if Prisoner and Chef are killed
             if (prisonerKilled == true && chefKilled == true && e == 3)
             {
 
@@ -1010,8 +1002,7 @@ class Program
                         answer = Console.ReadLine();
 
                         if (fryingPan != true)
-                        {
-                            checkDeath();
+                        {   //Player chose slash                            
                             if (answer == "Slash" ^ answer == "slash" ^ answer == "1" ^ answer == "s")
                             {
                                 checkDeath();
@@ -1040,7 +1031,7 @@ class Program
                                 checkDeath();
                                 pucciKill();
                             }
-
+                            //Player chose Stab
                             if (answer == "Stab" ^ answer == "stab" ^ answer == "2" ^ answer == "t")
                             {
                                 rndDam();
@@ -1068,7 +1059,7 @@ class Program
 
                                 pucciKill();
                             }
-
+                            //Player chose Block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
                                 checkDeath();
@@ -1079,10 +1070,20 @@ class Program
                                 blockedPucciFail();
                                 pucciKill();
                             }
+                            //Player chose heal
+                            else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
+                            {
+                                checkDeath();
+                                rndDam();
+                                playerHeal();
+
+                                pucciDeath();
+                                pucciKill();
+                            }
                         }
 
                         else if (fryingPan == true)
-                        {
+                        {   //Player chose Smack
                             if (answer == "Smack" ^ answer == "smack" ^ answer == "1" ^ answer == "s")
                             {
                                 checkDeath();
@@ -1111,7 +1112,7 @@ class Program
                                 checkDeath();
                                 pucciKill();
                             }
-
+                            //Player chose Block
                             else if (answer == "Block" ^ answer == "block" ^ answer == "2" ^ answer == "b")
                             {
                                 checkDeath();
@@ -1123,7 +1124,7 @@ class Program
                                 pucciKill();
 
                             }
-
+                            //Player chose heal
                             else if (answer == "Heal" ^ answer == "heal" ^ answer == "3" ^ answer == "c")
                             {
                                 checkDeath();
@@ -1148,20 +1149,16 @@ class Program
 
 
 
-
+        //If the enemy chance is not 1 then nothing will spawn
         else if (enemyChance != 1)
         {
             enemySpawned = 0;
         }
 
 
-        void sleep(int seconds)
-        {
-            sleep(1);
+        
 
-        }
-
-
+        //Function for the throne
         void throne()
         {
             Console.WriteLine(@"        ▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓            
@@ -1228,7 +1225,7 @@ class Program
         ▓▓██░░                                                                      ");
 
         }
-
+        //Function for the Prison Cell
         void cellroom()
         {
             Console.WriteLine(@"     \                  ###########                  /
@@ -1274,7 +1271,7 @@ class Program
 
 ");
         }
-
+        //Function for the Kitchen
         void kitchenroom()
         {
             Console.WriteLine(@"   ____________________________________________________________________    
@@ -1303,7 +1300,7 @@ class Program
   |__lc|__|/_____________________\|__|_||____________/###\___||_|||||__|
  / -_  _ -      _ -   _-_    -  _ - _ -|| -_    _  - \___/_- || |||||-_ \ ");
         }
-
+        //Function for the throne room
         void throneroom()
         {
             Console.WriteLine(@"██████      ░░████████████████████████      ░░████████████████████████      ░░████████████████████████████████████████████████████████████████████████████████      ░░████████████████████████      ░░████████████████████████      ░░██████
@@ -1352,7 +1349,7 @@ class Program
                                                                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░                                                                                          
 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████████████████████████████████████████████████████████████████████████████████▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
         }
-
+        //Function for the Prisoner
         void prisoner()
         {
             Console.WriteLine(@"                     ▄██████▄                       
@@ -1395,7 +1392,7 @@ class Program
                             ▐▌φ░░╡▓                  
                              ```                    ");
         }
-
+        //Function for Pucci
         void Pucci()
         {
             Console.WriteLine(@"                                                                                                                                                                                  
@@ -1470,7 +1467,7 @@ class Program
                                    ╙┴═+~∞░░░░═`   ╙╜╜╙╜└                                  
                                                                                 ");
         }
-
+        //Function for the Chef
         void Chef()
         {
             Console.WriteLine(@"       .--,--.
@@ -1484,6 +1481,31 @@ class Program
                                |     |
                                |_____|
                         ~~~~~~~ ===== ~~~~~~~~");
+        }
+        //Function for the Cabin
+        void Cabin()
+        {
+            Console.WriteLine(@"
+.
+                           (   )
+                          (    )
+                           (    )
+                          (    )
+                            )  )
+                           (  (                  /\
+                            (_)                 /  \  /\
+                    ________[_]________      /\/    \/  \
+           /\      /\        ______    \    /   /\/\  /\/\
+          /  \    //_\       \    /\    \  /\/\/    \/    \
+   /\    / /\/\  //___\       \__/  \    \/
+  /  \  /\/    \//_____\       \ |[]|     \
+ /\/\/\/       //_______\       \|__|      \
+/      \      /XXXXXXXXXX\                  \
+        \    /_I_II  I__I_\__________________\
+               I_I|  I__I_____[]_|_[]_____I
+               I_II  I__I_____[]_|_[]_____I
+               I II__I  I     XXXXXXX     I
+            ~~~~~""   ""~~~~~~~~~~~~~~~~~~~~~~~~");
         }
     }
 }
