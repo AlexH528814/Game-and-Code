@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {}
+    "C:\\Users\\alexh\\OneDrive\\Documents\\GitHub\\Game-and-Code\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {}
   },
   "projects": {
-    "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {
+    "C:\\Users\\alexh\\OneDrive\\Documents\\GitHub\\Game-and-Code\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
+        "projectUniqueName": "C:\\Users\\alexh\\OneDrive\\Documents\\GitHub\\Game-and-Code\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
         "projectName": "A Monarch's Flight 3",
-        "projectPath": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
-        "packagesPath": "C:\\Users\\528814\\.nuget\\packages\\",
-        "outputPath": "D:\\A Monarch's Flight and Files\\A Monarch's Flight 3\\obj\\",
+        "projectPath": "C:\\Users\\alexh\\OneDrive\\Documents\\GitHub\\Game-and-Code\\A Monarch's Flight 3\\A Monarch's Flight 3.csproj",
+        "packagesPath": "C:\\Users\\alexh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexh\\OneDrive\\Documents\\GitHub\\Game-and-Code\\A Monarch's Flight 3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\528814\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

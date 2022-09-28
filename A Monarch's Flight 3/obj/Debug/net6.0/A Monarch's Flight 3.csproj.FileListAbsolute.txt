@@ -13,3 +13,18 @@ D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\refint\A M
 D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.pdb
 D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.genruntimeconfig.cache
 D:\A Monarch's Flight and Files\A Monarch's Flight 3\obj\Debug\net6.0\ref\A Monarch's Flight 3.dll
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.exe
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.deps.json
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.runtimeconfig.json
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.dll
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\bin\Debug\net6.0\A Monarch's Flight 3.pdb
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.csproj.AssemblyReference.cache
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.AssemblyInfoInputs.cache
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.AssemblyInfo.cs
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.csproj.CoreCompileInputs.cache
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.dll
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\refint\A Monarch's Flight 3.dll
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.pdb
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\A Monarch's Flight 3.genruntimeconfig.cache
+C:\Users\alexh\OneDrive\Documents\GitHub\Game-and-Code\A Monarch's Flight 3\obj\Debug\net6.0\ref\A Monarch's Flight 3.dll
